@@ -1,0 +1,12 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Objetivos}{2}{}%
+\contentsline {section}{\numberline {2}Marco Teorico}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Teoria basica}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Ley Hooke}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}Segunda Ley de Newton}{2}{}%
+\contentsline {subsection}{\numberline {2.2}ED de movimiento forzado con amortiguamiento}{3}{}%
+\contentsline {subsection}{\numberline {2.3}ED de movimiento forzado sin amortiguamiento}{3}{}%
+\contentsline {section}{\numberline {3}Ejercicios}{4}{}%
+\contentsline {subsubsection}{\numberline {3.0.1}Ejercicio ED de movimiento forzados con amortiguamiento}{4}{}%
+\contentsline {subsubsection}{\numberline {3.0.2}Ejercicio ED de movimiento forzados sin amortiguamiento}{6}{}%
+\contentsline {section}{\numberline {4}Conclusión}{8}{}%

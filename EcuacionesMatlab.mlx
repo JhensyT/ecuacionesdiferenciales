@@ -1,0 +1,105 @@
+%Resorte y Masa Movimiento Forzado amortiguado
+
+%Una masa que pesa 16 lbs alarga 8/3 ft un resorte. La masa se librea 
+% inicialmente desde el reposo desde un punto 2 ft abajo de la posición 
+% de equilibrio y el movimiento posterior ocurre en un medio
+% que ofrece una fuerza de amortiguamiento igual a ½ de la velocidad 
+% instantánea. Encuentre la ecuación de movimiento si se aplica 
+% a la masa una fuerza extrema igual a f(t)=10 cos 3t.
+
+clc % limpieza en pantalla 
+clear "all" % borra lo almacenado 
+close all %cerrar lo anterior 
+% sacar los datos del problemas 
+%sym m 
+
+w=16; %valor del peso en lb 
+s=8/3; %Alargamiento del resorte en pie
+g=32; %valor de la gravedad en pie/s^2
+%u=10*cos(3*t); %Fuerza periodica 
+%Convertir el peso a masa
+m = w/g; %Formula para hallar masa
+% enteros(d) decimales(f) caracteres (c).
+disp('Datos:')
+fprintf('Valor de la masa es %d / %d: %f slug', w , g, m) ;  
+%Hallar la constante de elasticidad por medio de la Ley de Hooke
+% Ley de Hooke F=k*s
+k=w/s; %lb/pie
+disp(' ')
+fprintf('Valor de la constante de elasticidad es %d / %f: %d lb/pie', w , s, k);
+ %'beta'= 1/2;%constante de amortiguamiento
+b=1/2;
+disp(' ')
+syms x(t)
+u=10*cos(3*t);
+
+disp('Ecuacion diferencial de segundo orden para masa resorte con movimiento forzado ')
+
+disp('Ecuación no homogenea')
+eqb=(m*diff(x,t,2)+b*diff(x,t)+k*x)*2==u*2
+disp('Ecuación homogenes igualada a cero')
+xc=(m*diff(x,t,2)+b*diff(x,t)+k*x)*2==0 % Realizar ecuacion homogeneo 
+disp('Resolver ecuacion cuadratica')
+syms h
+p=subs(xc,[diff(x,t,2),diff(x,t),x],[h^2,h,1]);
+p % Ecucación cuadratica 
+
+h1=(-b+sqrt(b^2-4*m*k))/(2*m);%Ecuacion cuadratica
+h2=(-b-sqrt(b^2-4*m*k))/(2*m);
+h1 %numero complejos 
+h2 %numero complejos
+
+%parte real 
+%parte imaginaria k 
+h1;i=imag(h1),r=real(h1)
+syms e 
+syms c1
+syms c2
+%e^(r*t)*(c1*cos(i*t) + c2*sin(i*t))
+disp('Solucion homogenea')
+xc2=e^(r*t)*(c1*cos(i*t) + c2*sin(i*t))%Ecuacion homogenea 
+%Resolver ecuacion particular 
+syms A 
+syms B
+disp('Resolver ecuacion particular')
+eqb
+xp=A*cos(3*t) +B*sin(3*t)
+xw=diff(xp) %primera derivada 
+xr=diff(xp,2) %segunda deriva 
+eqn=(m*diff(x,t,2)+b*diff(x,t)+k*x)*2==u*2 % Ecuacion principal para reemplazar 
+o=((xw*b)+(k*xp)+(xr*m))*2==u*2
+syms x y 
+%ok='Escriba las variables con coseno'
+eq1=3*B+3*B==20
+%ol='Escriba las variables con seno'
+eq2=-3*A+3*B==0
+[A ,B]=solve(eq1,eq2)
+disp('Ecuacion particular ')
+xp=A*cos(3*t) +B*sin(3*t)
+
+disp('Para la solucion final se debe x = xh + xp Entonces se suma lo correspondiente')
+disp('Ecuación general')
+mp=xc2+xp
+% condicion x(0)=2
+eq3=2==xc2+xp
+i=0
+mx=subs(eq3,t,i)
+C1=solve(mx,c1)
+
+mj=subs(mp,c1,C1)
+
+% condicion x'(0)=0
+
+mpp=diff(mp) %primera derivada
+
+mk=subs(mpp,[log(e)],1) %primera derivada
+
+
+mx=subs(mk,t,0)
+
+mh=subs(mx,c1,C1)
+
+C2=solve(mh,c2)
+disp('Ecuación de movimiento')
+
+mf=subs(mp,[c1,c2],[C1,C2])

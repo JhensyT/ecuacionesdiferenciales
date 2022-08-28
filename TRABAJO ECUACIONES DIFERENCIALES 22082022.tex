@@ -1,0 +1,371 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\geometry{letterpaper,
+left= 2cm, 
+right= 2 cm, 
+top= 2 cm, 
+bottom= 2cm}
+\usepackage{anyfontsize}
+\usepackage{amsmath}
+\graphicspath{{./Imagenes/}}
+\begin{document}
+\begin{titlepage}
+\centering
+
+{\bfseries\LARGE Resorte y Masa Movimiento Forzado \par}
+\vspace{1cm}
+%{\itshape\Large Trabajo final \par}
+{\Large Trabajo final \par}
+\vfill
+{\Large Presentado: \par}
+\vspace{0.5cm}
+{\Large Jhensy Thalia Asprilla Urrego \par}
+\vfill
+%{\bfseries\LARGE Ecuaciones diferenciales \par}
+{\Large Universidad del Cauca \par}
+\vspace{0.5cm}
+{\Large Ingeniería Civil  \par}
+\vspace{0.5cm}
+{\Large Jhonatan Collazos Ramírez  \par}
+%{\scshape\Large Facultad de Ingenier\'ia \par}
+%\vspace{3cm}
+\vfill
+{\Large Sede Norte, Santander de Quilichao  \par}
+\vspace{0.5cm}
+{\Large Agosto 2022 \par}
+\end{titlepage}
+%\end{document}
+		
+	\newpage 
+	\begin{center}
+	\tableofcontents % tabla de contenido
+	\end{center}
+	
+	\newpage
+	\begin{center}
+	\section*{Introducción}
+	\end{center}
+	\vspace{1cm}
+	Este documento desarrolla temas acerca modelos lineales, problemas con valores iniciales, específicamente en los sistemas de resorte y masa con movimiento forzado con y sin amortiguamiento. Tendrá una introducción básica de la teoría y ejercicios a aplicar, tomando como referencia el libro Ecuaciones diferenciales con problemas con valores en la frontera de Dennis G y Michael R, el cual nos guiará con los procedimientos de los ejercicios.\cite{01}
+	
+	Además, se trabajarán ecuaciones diferenciales de segundo orden estas están presente y se aplican durante el desarrollo de problemas en distintas áreas de la ingeniería, la cual allí la importancia de su conocimiento. 
+	\vspace{1cm}
+	\section{Objetivos}
+	Aprender a utilizar los diferentes tipos de movimiento del sistema resorte masa con movimiento forzado con y sin amortiguamiento, aplicando los métodos teóricos y ecuaciones diferenciales de orden superior. 
+	\section{Marco Teorico}
+	\subsection{Teoria basica}
+	Ante el desarrollo de los sistemas resorte y masa con movimiento forzado hay que tener en cuenta una teoría básica y conversiones de unidad, presentativa a continuación: 
+
+\subsubsection{Ley Hooke}
+ 
+	La fuerza elástica es igual a la constante de elasticidad (k) multiplicada por el alargamiento que sufre el resorte atreves de una fuerza.\cite{01}
+	\begin{equation}
+	F= k * s \quad\text{Ley de Hooke}
+  	\end{equation}
+	El resorte se caracteriza por el numero de k. por ejemplo, si una masa que pesa 27 libras hace que un resorte se alargue 3 pie, entonces 27 lbs =k * 3 pie teniendo como resultado k = 9 lbs/pies. Entonces una masa que pesa 9 libras alarga el mismo resorte.
+	\subsubsection{Segunda Ley de Newton}
+	
+	Por la ley de newton se conoce al peso como lo siguiente:
+	 
+ 	\begin{equation}
+W= m * g
+\end{equation}
+	Las unidades de medición pueden variar como en la gravedad y estar definidas como (g)= 32 pie/s2 = 9.81m/ s2 = 981cm/ s2.  Además, la masa se puede medir en slugs, kilogramos o gramos. 
+	\vspace{1cm}
+	\vfill
+	Cuando se tiene un cuerpo que suspende de un resorte, este tiende a que el resorte tenga un alargamiento (s) y logra una posición de equilibrio en la cual el peso se equilibra mediante la fuerza elástica ks. La condición de equilibrio es mg=ks o mg-ks=0.
+	
+	El sistema masa-Resorte esta compuesto por una masa puntual, un resorte ideal colgante y un punto de sujeción resorte. \cite{01}
+	
+	
+	\subsection{ED de movimiento forzado con amortiguamiento}
+	
+	El movimiento forzado amortiguado lo tomamos en cuenta con una fuerza externa f(t) que actua sobre una masa oscilatoria en un resorte; por ejemplo, f(t) podría representar una fuerza de impulsión que causara un movimiento oscilatorio vertical del soporte del reporte. La inclusión de y(t) en la formulación de la segunda ley de newton da la ecuación diferencial del movimiento forzado:
+	
+	\begin{equation}
+	m\frac{\partial^2 }{\partial x^2}= -kx-\beta \frac{\partial }{\partial x}+f(t)\quad\text{Ecuacion general}
+		\end{equation}
+	%\vspace{0.5cm}
+	Si dividos la ecuacion entre la masa tenemos:
+	\begin{equation}
+	\frac{\partial^2 }{\partial x^2}+2\lambda\frac{\partial }{\partial x} +\omega^2=F(t)
+	\end{equation}
+	Donde:
+	\begin{equation}
+	2\lambda =\frac{\beta}{m} \quad\quad\omega^2=\frac{k}{m}
+	\end{equation}
+	
+	\begin{equation}
+	F(t)=\frac{f(t)}{m}
+	\end{equation}
+	Para resolver la última ecuación homogénea, se puede usar ya sea el método de coeficiente indeterminados o variación de parámetros. 
+	\vfill
+	Esta es otra manera en la cual podemos encontrar la ED de movimiento forzado amortiguado:
+	\begin{equation}
+mx''+\beta x'+kx=F(t)	
+	\end{equation}
+	
+	Dentro de los procesos para resolver los ejercicios se encontrarán ecuaciones diferenciales de segundo orden no homogéneas en la cuales se debe hallar el termino transitorio o parte complementaria x(c) y la solución estable x(p).
+	\begin{equation}
+	x(t)=x_{c}(t)+x_{p}(t)
+	\end{equation}
+	
+	\subsection{ED de movimiento forzado sin amortiguamiento}
+	Cuando se ejerce una fuerza periódica sin fuerza de amortiguamiento, no hay término transitorio en la solución de un problema. También se ve que una fuerza periódica con una frecuencia cercana o igual que la frecuencia de las vibraciones libres amortiguadas causa un problema grave en un sistema mecánico oscilatorio:\\
+	
+	
+		Formula de movimiento forzado no amortiguado\\ 
+\begin{equation*}
+m\frac{\partial^2 }{\partial x^2}+kx=f(x)
+\end{equation*}
+		
+	
+	\section{Ejercicios}
+	\subsubsection{Ejercicio ED de movimiento forzados con amortiguamiento}
+	
+	 Una masa que pesa 16 libras alarga $\frac{8}{3}$ pie un resorte. La 
+masa se libera inicialmente desde el reposo desde un punto 
+2 pies abajo de la posición de equilibrio y el movimiento 
+posterior ocurre en un medio que ofrece una fuerza de 
+amortiguamiento igual a $\frac{1}{2}$ de la velocidad instantánea. 
+Encuentre la ecuación de movimiento si se aplica a la 
+masa una fuerza externa igual a f(t) = 10 cos 3t.\cite{04}
+\vspace{0.5cm}
+
+Datos:\\
+
+\vspace{0.2cm}
+$w=16 lb$\hspace{0.5cm} Peso\\
+
+\vspace{0.2cm}
+$s=8/3 pie$\hspace{0.5cm} Alargamiento del resorte\\
+
+\vspace{0.2cm}
+$g=32pie/s^2$\hspace{0.5cm} Gravedad
+\begin{equation*}
+	w=m*g\quad\text{Ecuacion del peso}
+\end{equation*}
+Convertir de peso a masa:\space $m=\frac{16 lb}{32 pie/s^2}=\frac{1}{2} slug$
+\begin{equation*}
+	F=k*s\quad\text{Fuerza elastica}
+\end{equation*}
+\vspace{1cm}
+Hallar la constante de elasticidad: \space $k=\frac{16 lb}{8/3 pie}=6 lbs/pie$\\
+
+\vspace{0.2cm}
+$\beta =\frac{1}{2}\frac{lbs}{pie}$\hspace{0.5cm} Constante de amortiguamiento \\
+
+\vspace{0.2cm}
+$f(t)=10\cos(3t)$\hspace{0.5cm} Es una fuerza periodica\\
+
+Con los datos anteriores escribimos la fórmula de ecuación diferencial de segundo orden para masa resorte con movimiento forzado. \\
+
+\vspace{0.2cm}
+$mx''+\beta x'+kx=f(t)$\hspace{0.5cm} Ecuación general\\
+
+\vspace{0.2cm}
+$\frac{1}{2}x''+\frac{1}{2}x'+6x=10\cos(3t)$\hspace{0.5cm} Ecuación general\\
+
+\vspace{0.2cm}
+Dividir entre la masa\hspace{0.5cm}$x''+x'+12x=20\cos(3t)$\\
+
+Como tenemos una ecuación de segundo orden no homogénea la debemos de operar por separado, primero realizaremos la parte homogénea. \\
+
+Igualar la parte homogénea a cero: $x''+x'+12x=0$\\
+
+Convertir en una ecuacion auxiliar: $x^2+x+12=0$\hspace{0.5cm}  Hallar valor de x con  la fórmula cuadrática en primer lugar:\\
+
+\text{La Fórmula Cuadrática es } $x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}$\\
+
+$x = \frac {-1 \pm \sqrt {1^2 - 4*1*12}}{2*1}$\\
+
+$x = \frac {-1 \pm \sqrt {-47}}{2}=\frac{-1}{2}\frac{\pm\sqrt{47}i}{2}$\\
+
+De acuerdo a la siguiente teoria:\\
+
+Cuando $b^2-4ac<0$\\
+
+$m_{1\neq }m_{2}$ no pertenece a los reales entonces $m_{1 },m_{2}=\lambda \pm it$\\
+
+$x=e^{rt}$\\
+
+$x_{1}=e^{\lambda+i\alpha}$\hspace{2cm}$x_{2}=e^{\lambda+i\alpha }$\hspace{2cm} Solucion  $x=e^{\lambda*t }(C_{1}\cos(\alpha t)+C_{2}\sin(\alpha t)$\\
+
+De acuerdo a la teoría anterior tenemos que la ecuación homogénea es:\\
+
+La parte real: $\lambda =-1/2$\\
+
+La parte imaginaria: $\alpha =\frac{\sqrt{47}}{2}$\\
+ 
+$x_{h}=e^{\frac{-t}{2} }(C_{1}\cos(\frac{\sqrt{47}}{2} t)+C_{2}\sin(\frac{\sqrt{47}}{2} t))$
+
+\vfill
+Ahora determinaremos la solución particular por medio de funciones trigonometricas por la existencia de coseno, calculamos primero y segunda deriva de la ecuación.\\
+
+$x_{p}=A\cos(3t)+b\sin(3t)$\\
+
+$x_{p'}=-3A\sen(3t)+3b\cos(3t)$ Corresponde a la primera derivada\\  
+
+$x_{p''}=-9A\cos(3t)-9b\sin(3t)$ Corresponde a la Segunda derivada\\
+
+Lo remplazamos en la ecuación general y operamos\\
+
+$-3A\sen(3t)+3B\cos(3t)-9A\cos(3t)-9B\sin(3t)+12A\cos(3t)+12B\sin(3t))=20\cos(3t)$  \\
+
+$-3A\sen(3t)-9B\sin(3t)+12B\sin(3t))=20\cos(3t)-3B\cos(3t)+9A\cos(3t-12A\cos(3t)$\\
+
+$-3A-9B+12B=20-3B+9A-12A$\\
+
+$-3A-9B+12B=20-3B-3A$\\
+
+$6B=20 \Rightarrow B=20/6 \Rightarrow B=10/3$\\
+
+$-3A+3B=0 \Rightarrow -3A+3\frac{10}{3}=0 \Rightarrow A=-10/-3 \Rightarrow A=10/3$\\
+
+\textbf{$x_{p}=\frac{10}{3}\cos(3t)+\frac{10}{3}\sin(3t)$}\hspace{0.5cm} Solucción particular\\
+
+Para la solución final se debe $x=x_{h}+x_{p}$ Entonces se suma lo correspondiente.\\ 
+
+$x=e^{\frac{-t}{2} }(C_{1}\cos(\frac{\sqrt{47}}{2} t)+C_{2}\sin(\frac{\sqrt{47}}{2} t))+\frac{10}{3}\cos(3t)+\frac{10}{3}\sin(3t)$\\
+
+A continuación se hallaran $C_{1}$ y $C_{2}$ según las condiciones iniciales: $x_{0}=2$  y $x'_{0}=0$ y remplazamos en la ecuación final \\
+
+Reemplazo$\hspace{0.2cm}\rightarrow\hspace{0.2cm}x_{0}=2$ $\hspace{0.5cm}2=e^{\frac{0}{2} }(C_{1}\cos(\frac{\sqrt{47}}{2} 0)+C_{2}\sin(\frac{\sqrt{47}}{2} 0))+\frac{10}{3}\cos(3*0)+\frac{10}{3}\sin(3*0)$\\
+
+$2=e^{0 }(C_{1}+0)+\frac{10}{3}+0$\\
+
+$2=C_{1}+\frac{10}{3}\hspace{0.2cm}\Rightarrow\hspace{0.2cm}C_{1}=2-\frac{10}{3}\hspace{0.2cm}\Rightarrow\hspace{0.2cm}C_{1}=\frac{-4}{3} $\\
+
+Derivamos la ecuación y remplazamos la condición $x'_{0}=0$ en ella $\hspace{0.2cm}\rightarrow\hspace{0.2cm} x=e^{\frac{-t}{2} }(C_{1}\cos(\frac{\sqrt{47}}{2} t)+C_{2}\sin(\frac{\sqrt{47}}{2} t))+\frac{10}{3}\cos(3t)+\frac{10}{3}\sin(3t)$\\
+
+$x'=e^{\frac{-t}{2} }/-2(C_{1}\cos(\frac{\sqrt{47}}{2} t)+C_{2}\sin(\frac{\sqrt{47}}{2} t))+e^{\frac{-t}{2} }(-C_{1}\-\frac{\sqrt{47}}{2}sin(\frac{\sqrt{47}}{2}t)+C_{2}\frac{\sqrt{47}}{2}\cos(\frac{\sqrt{47}}{2} t))
++\frac{10}{3}*3*sin(3t)+\frac{10}{3}*3*cos(3t)$\\
+
+
+$0=e^{\frac{0}{2} }/-2(C_{1}\cos(\frac{\sqrt{47}}{2} 0)+C_{2}\sin(\frac{\sqrt{47}}{2} 0))+e^{\frac{-0}{2} }(-C_{1}\-\frac{\sqrt{47}}{2}sin(\frac{\sqrt{47}}{2}0)+C_{2}\frac{\sqrt{47}}{2}\cos(\frac{\sqrt{47}}{2} 0))+10*sin(3*0)+10*cos(3*0)$\\% remplazando el cero 
+
+$0={\frac{-1}{2} }(\frac{-4}{3}+0)+(0+C_{2}\frac{\sqrt{47}}{2})+0+10\hspace{0.4cm}\Rightarrow\hspace{0.4cm} 0={\frac{2}{3} }+C_{2}\frac{\sqrt{47}}{2}+10 \hspace{0.4cm}\Rightarrow\hspace{0.4cm} 0={\frac{32}{3} }+C_{2}\frac{\sqrt{47}}{2}$\\
+
+${\frac{-32}{3} }/\frac{\sqrt{47}}{2}=C_{2} \hspace{0.4cm}\Rightarrow\hspace{0.4cm} C_{2}=\frac{-64}{3\sqrt{47}}$\\
+
+Ecuaciòn de movimiento:\vspace{0.5cm} $x=e^{\frac{-t}{2} }(\frac{-4}{3}\cos(\frac{\sqrt{47}}{2} t)-\frac{64}{3\sqrt{47}}\sin(\frac{\sqrt{47}}{2} t))+\frac{10}{3}\cos(3t)+\frac{10}{3}\sin(3t)$
+
+\subsubsection{Ejercicio ED de movimiento forzados sin amortiguamiento}
+	
+Cuando una masa de 2 kilogramos se une a un resorte cuya 
+constante es 32 $N/m$, éste llega al reposo en la posición de 
+equilibrio. Comenzando en t = 0, una fuerza igual a $f(t) =
+68e^{2t}$
+ cos (4t) se aplica al sistema. Determine la ecuación de 
+movimiento en ausencia de amortiguamiento.\cite{05}\\
+
+Formula de movimiento forzado no amortiguado\\ 
+\begin{equation*}
+m\frac{\partial^2 }{\partial x^2}+kx=f(x)
+\end{equation*}
+
+Datos:\\
+
+\vspace{0.2cm}
+$m=2 kg$\hspace{0.5cm} Peso\\
+
+\vspace{0.2cm}
+$k=32 N/m$\hspace{0.5cm} Constante de elasticidad\\
+
+\vspace{0.2cm}
+$f(t)=68e^{-2t}cos (4t)$\hspace{0.5cm} Fuerza\\
+
+Remplazamos en la formula de movimiento forzado no amortiguado:
+\hspace{0.2cm}$2x''+32x=68e^{-2t}cos (4t)$\hspace{0.2cm} esta es una ecuación no homogénea y se debe de resolver por partes, además la formula general final se compone de una parte complementaria y una particular, donde la parte complementaria es homogénea y la igualamos a cero para poder resolverla. \\
+
+$2x''+32x=0$\hspace{0.2cm}la convertimos a  ecuación auxiliar conociendo esta condición para ecuaciones homogéneas\hspace{0.2cm}$x=e^{rt}$\hspace{0.2cm}$\rightarrow\hspace{0.2cm}2r^2+32=0 \hspace{0.2cm}\rightarrow\hspace{0.2cm} r^2+16=0$ hallar el valor de r \\
+
+$r^2=-16\hspace{0.2cm}\rightarrow\hspace{0.2cm}r=\pm\sqrt{-16}\hspace{0.2cm}\rightarrow\hspace{0.2cm}r=\pm\sqrt{16}\sqrt{-1}\hspace{0.2cm}\rightarrow\hspace{0.2cm}r=\pm 4i$\\
+
+Parte imaginaria $\alpha=4$\\
+
+Parte real $\lambda=0$\\
+
+De acuerdo a la siguiente teoria:\\
+
+Cuando $b^2-4ac<0$\\
+
+$m_{1\neq }m_{2}$ no pertenece a los reales entonces $m_{1 },m_{2}=\lambda \pm it$\\
+
+$x=e^{rt}$\\
+
+$x_{1}=e^{\lambda+i\alpha}$\hspace{2cm}$x_{2}=e^{\lambda+i\alpha }$\hspace{2cm} Solucion  $x=e^{\lambda*t }(C_{1}\cos(\alpha t)+C_{2}\sin(\alpha t)$\\
+
+Remplazamos los valores de alfa y landa en la ecuación para hallar la parte complementaria.\\
+
+$x=e^{0*t }(C_{1}\cos(4 t)+C_{2}\sin(4 t)\hspace{0.2cm}\rightarrow\hspace{0.2cm}x_c=C_{1}\cos(4 t)+C_{2}\sin(4 t)$\\
+
+Ahora determinaremos la solución particular por medio de funciones trigonometricas por la existencia de coseno, calculamos primero y segunda deriva de la ecuación.\\
+
+$x_{p}=e^{-2t}(A\cos(4t)+b\sin(4t))$\\
+
+$x_{p'}=-2e^{-2t}(A\cos(4t)+B\sin(4t))+e^{-2t}  (4B cos(4t)-4Asin(4t))$ Corresponde a la primera derivada\\  
+
+$x_{p''}=-12Ae^{-2t}\cos \left(4t\right)+16Ae^{-2t}\sin \left(4t\right)-12Be^{-2t}\sin \left(4t\right)-16Be^{-2t}\cos \left(4t\right)$ Corresponde a la Segunda derivada\\
+
+Lo remplazamos en la ecuación general y operamos:\\
+
+
+$2(-12Ae^{-2t}\cos \left(4t\right)+16Ae^{-2t}\sin \left(4t\right)-12Be^{-2t}\sin \left(4t\right)-16Be^{-2t}\cos \left(4t\right)+32(e^{-2t}(A\cos(4t)+b\sin(4t))=68 e^{-2t} cos (4t)$\\
+
+$-24Ae^{-2t}\cos \left(4t\right)+32Ae^{-2t}\sin \left(4t\right)-24Be^{-2t}\sin \left(4t\right)-32Be^{-2t}\cos \left(4t\right)+32e^{-2t}A\cos(4t)+32e^{-2t} B\sin(4t))=68 e^{-2t} cos (4t)$\\
+
+$32A-24B+32B=0\hspace{0.2cm}\rightarrow\hspace{0.2cm}32A+8B=0\hspace{0.2cm}\rightarrow\hspace{0.2cm}B=-4A\hspace{0.2cm}\rightarrow\hspace{0.2cm}B=-2$\\
+
+$-24A-32B+32A=68\hspace{0.2cm}\rightarrow\hspace{0.2cm}8A-32B=68\hspace{0.2cm}\rightarrow\hspace{0.2cm} 8A-32(-4A)=68\hspace{0.2cm}\rightarrow\hspace{0.2cm} 8A+128A=68\hspace{0.2cm}\rightarrow\hspace{0.2cm} A=1/2$.\\
+
+$x_{p}=e^{-2t}(1/2\cos(4t)-2\sin(4t))\hspace{0.2cm}\rightarrow\hspace{0.2cm}x_{p}=\frac{1}{2}e^{-2t}\cos(4t)-2e^{-2t}\sin(4t)$ Entonces:\\
+
+$X=C_{1}\cos(4 t)+C_{2}\sin(4 t)+\frac{1}{2}e^{-2t}\cos(4t)-2e^{-2t}\sin(4t)$\hspace{0.2cm}Determinamos $C_1$ y $C_2$ de acuerdo a la siguiente condición $x_{0}=0$ y $x'_{0}=0$\\
+
+Entonces se remplaza en la ecuación final de acuerdo al siguiente criterio$x_{0}=0$\\
+
+$0=C_{1}\cos(4 *0)+C_{2}\sin(4 *0)+\frac{1}{2}e^{-2*0}\cos(4*0)-2e^{-2*0}\sin(4*0)$\\
+
+$C_{1}+\frac{1}{2}=0$\\
+
+$C_{1}=-\frac{1}{2}$\\
+
+por ultimo se remplaza en la ecuación final previamente derivada de acuerdo al siguiente criterio$x'_{0}=0$  \\
+
+$x'=-4C_1\sin(4t)+4C_2\cos (4t)-9e^{-2t}\cos (4t)+2e^{-2t}\sin (4t)$\\
+
+$x'=-4C_1\sin(4*0)+4C_2\cos (4*0)-9e^{-2*0}\cos (4*0)+2e^{-2*0}\sin (4*0))$\\
+
+$x'=4C_2-9\hspace{0.2cm}\rightarrow\hspace{0.2cm}C_2=9/4$\\Remplazamos $C_1$ y $C_2$ en la formula final de x\\
+
+$X=-1/2\cos(4 t)+9/4\sin(4 t)+1/2e^{-2t}\cos(4t)-2e^{-2t}\sin(4t)$\hspace{0.2cm} La ecuación de 
+movimiento en ausencia de amortiguamiento
+
+	\section{Conclusión}
+
+Finalmente concluir, que a través del desarrollo de las ecuaciones de orden superior se pueden formar modelos de distintos fenómenos, conocer el comportamiento que tendría un cuerpo con movimiento forzado con y sin amortiguamiento, además recordando los conceptos y comportamiento de la velocidad, aceleración y fuerza a través de un resorte. 
+
+	%\section{Refencia}
+	
+	\begin{thebibliography}{10}
+	\bibitem {01} $G, D, \& R, M (2009)$. Ecuaciones Diferenciales con problemas con valores en la frontera . Mexico : Brooks/Cole.
+	\bibitem {02} Sistema Masa-resorte forzado. (s/f). Prezi.com. Recuperado el 22 de agosto de 2022, de  https://prezi.com/ielanqlx4-rw/sistema-masa-resorte-forzado/
+	\bibitem {03} Introducción, 1.(s/f).Tema 2 ECUACIONES DIFERENCIALES. Recuperado el 22 de agosto de 2022, de http://matema.ujaen.es/jnavas web recursos/archivos/continuos/modelos.
+
+\bibitem {04} Portilla, R. [MegaRobinson1982]. (2019, enero 18). Sistema masa - resorte, movimiento forzado. Youtube. https://www.youtube.com/watch?v=WSPNSMx3COo
+
+\bibitem{05} Plus, K. M. [Klasesdematematicasymasmaterias]. (2020, agosto 24). EDO -50. Movimiento forzado NO amortiguado.Sistema masa/resorte. No. 33. Sección  5.1 Dennis G. Zill. Youtube. https://www.youtube.com/watch?v=3aZWQalmV\_M
+
+
+	
+	
+	\end{thebibliography}
+	
+\end{document}
